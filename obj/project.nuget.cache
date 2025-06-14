@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ye5UWSoHjgcOZZcsmWwV05AaBfFokaead/4wUA3codU4MqnToquZzopNCDJn7J2idoLdBtITonemLBlikz+Nxw==",
+  "success": true,
+  "projectFilePath": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\FoodRestaurant.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\sixlabors.imagesharp\\3.1.7\\sixlabors.imagesharp.3.1.7.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,519 @@
+@model List<CartItem>
+@{
+    ViewData["Title"] = "Shopping Cart - Spice Heaven";
+}
+
+<div class="cart-header">
+    <div class="overlay"></div>
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h1 class="display-3 fw-bold text-white mb-3">Your Cart</h1>
+                <p class="lead text-white">Review and complete your order</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="cart-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="cart-items" data-aos="fade-right">
+                    @if (Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            <div class="cart-item" data-id="@item.Id">
+                                <div class="cart-item-image">
+                                    <img src="@item.ImageUrl" alt="@item.Name">
+                                </div>
+                                <div class="cart-item-details">
+                                    <h5>@item.Name</h5>
+                                    <p class="text-muted">@item.Description</p>
+                                    <div class="quantity-controls">
+                                        <button class="btn-quantity" onclick="updateQuantity(@item.Id, -1)">-</button>
+                                        <input type="number" class="quantity-input" value="@item.Quantity" min="1" max="10" 
+                                               onchange="updateQuantity(@item.Id, this.value - @item.Quantity)">
+                                        <button class="btn-quantity" onclick="updateQuantity(@item.Id, 1)">+</button>
+                                    </div>
+                                </div>
+                                <div class="cart-item-price">
+                                    <span class="price">₹@(item.Price * item.Quantity)</span>
+                                    <button class="btn-remove" onclick="removeItem(@item.Id)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="empty-cart text-center py-5">
+                            <i class="fas fa-shopping-cart fa-3x mb-3"></i>
+                            <h3>Your cart is empty</h3>
+                            <p class="text-muted">Add some delicious items to your cart</p>
+                            <a href="/Menu" class="btn btn-primary mt-3">Browse Menu</a>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="cart-summary sticky-top" style="top: 20px;">
+                    <h4>Order Summary</h4>
+                    <div class="summary-item">
+                        <span>Subtotal</span>
+                        <span>₹@Model.Sum(i => i.Price * i.Quantity)</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Tax (5%)</span>
+                        <span>₹@(Model.Sum(i => i.Price * i.Quantity) * 0.05m)</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Delivery Fee</span>
+                        <span>₹50</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span>₹@(Model.Sum(i => i.Price * i.Quantity) * 1.05m + 50)</span>
+                    </div>
+                    <div class="promo-code mb-4">
+                        <input type="text" class="form-control mb-2" id="promoCode" placeholder="Enter promo code">
+                        <button class="btn btn-outline-primary w-100" onclick="applyPromoCode()">Apply Code</button>
+                    </div>
+                    <button class="btn btn-primary btn-lg w-100" onclick="proceedToCheckout()">
+                        <div class="d-flex align-items-center justify-content-center">
+                        <span>Proceed to Checkout</span>
+                            <div class="checkout-loader ms-2 d-none">
+                                <div class="spinner-border spinner-border-sm" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+                    <div class="payment-icons mt-4">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Styles {
+    <style>
+        .cart-header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1504674900247-0877df9cc836');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0 80px;
+            margin-top: -20px;
+            position: relative;
+        }
+
+        .cart-header .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
+        }
+
+        .cart-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .cart-item {
+            position: relative;
+        }
+
+        .cart-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            display: none;
+            z-index: 1;
+        }
+
+        .cart-item.updating::after {
+            display: block;
+        }
+
+        .cart-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .cart-item-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+ 
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-details h5 {
+            margin-bottom: 5px;
+            color: #2d3436;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .btn-quantity {
+            width: 30px;
+            height: 30px;
+            border: none;
+            background: #f1f2f6;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-quantity:hover {
+            background: #ff4757;
+            color: white;
+        }
+
+        .quantity-input {
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        .cart-item-price {
+            text-align: right;
+            min-width: 100px;
+        }
+
+        .price {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+
+        .btn-remove {
+            border: none;
+            background: none;
+            color: #ff4757;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-remove:hover {
+            color: #ff3040;
+            transform: scale(1.1);
+        }
+
+        .cart-summary {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+        }
+
+        .cart-summary h4 {
+            margin-bottom: 20px;
+            color: #2d3436;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #636e72;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #f1f2f6;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #2d3436;
+        }
+
+        .payment-icons {
+            text-align: center;
+            color: #b2bec3;
+            font-size: 2rem;
+        }
+
+        .payment-icons i {
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        .payment-icons i:hover {
+            color: #2d3436;
+        }
+
+        .empty-cart {
+            color: #636e72;
+        }
+
+        .empty-cart i {
+            color: #b2bec3;
+        }
+
+        /* Animation for cart items */
+        .cart-item {
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        @@keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive adjustments */
+        @@media (max-width: 768px) {
+            .cart-header {
+                padding: 100px 0 60px;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cart-item-image {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .cart-item-price {
+                margin-top: 15px;
+                text-align: center;
+            }
+
+            .quantity-controls {
+                justify-content: center;
+            }
+        }
+    </style>
+}
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Initialize animations
+            gsap.from('.cart-item', {
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: 'power3.out'
+            });
+
+            gsap.from('.cart-summary', {
+                opacity: 0,
+                x: 50,
+                duration: 1,
+                delay: 0.5,
+                ease: 'power3.out'
+            });
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+        });
+
+        function updateQuantity(id, change) {
+            const quantityInput = $(`.cart-item[data-id="${id}"] .quantity-input`);
+            const currentValue = parseInt(quantityInput.val());
+            const newValue = currentValue + (typeof change === 'number' ? change : (parseInt(change) - currentValue));
+            
+            if (newValue < 1 || newValue > 10) return;
+            
+            // Show loading animation
+            const cartItem = $(`.cart-item[data-id="${id}"]`);
+            cartItem.addClass('updating');
+            
+            $.ajax({
+                type: 'POST',
+                url: '/Cart/UpdateQuantity',
+                data: { id: id, quantity: newValue },
+                success: function(response) {
+                    // Update UI
+                    quantityInput.val(newValue);
+                    
+                    // Update price
+                    $(`.cart-item[data-id="${id}"] .price`).text(`₹${response.itemTotal}`);
+                    
+                    // Update summary
+                    updateSummary(response);
+                    
+                    // Hide loading animation
+                    cartItem.removeClass('updating');
+                },
+                error: function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Failed to update quantity',
+                        confirmButtonColor: '#ff4757'
+                    });
+                }
+            });
+        }
+
+        function removeItem(id) {
+            const cartItem = $(`.cart-item[data-id="${id}"]`);
+            
+            // Animate item removal
+            gsap.to(cartItem, {
+                opacity: 0,
+                x: -100,
+                duration: 0.5,
+                ease: 'power2.in',
+                onComplete: () => {
+                    cartItem.remove();
+                    
+                    // Show empty cart message if no items left
+                    if ($('.cart-item').length === 0) {
+                        $('.cart-items').html(`
+                            <div class="empty-cart text-center py-5">
+                                <i class="fas fa-shopping-cart fa-3x mb-3"></i>
+                                <h3>Your cart is empty</h3>
+                                <p class="text-muted">Add some delicious items to your cart</p>
+                                <a href="/Menu" class="btn btn-primary mt-3">Browse Menu</a>
+                            </div>
+                        `);
+                    }
+                    
+                    // Update summary
+                    $.post('/Cart/Remove', { id: id })
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Yes, remove it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.post('/Cart/Remove', { id: itemId })
+                        .done(function(response) {
+                            // Remove item with animation
+                            $(`.cart-item[data-id="${itemId}"]`).slideUp(300, function() {
+                                $(this).remove();
+                                
+                                // Show empty cart message if no items left
+                                if ($('.cart-item').length === 0) {
+                                    $('.cart-items').html(`
+                                        <div class="empty-cart text-center py-5">
+                                            <i class="fas fa-shopping-cart fa-3x mb-3"></i>
+                                            <h3>Your cart is empty</h3>
+                                            <p class="text-muted">Add some delicious items to your cart</p>
+                                            <a href="/Menu" class="btn btn-primary mt-3">Browse Menu</a>
+                                        </div>
+                                    `);
+                                }
+                            });
+                            
+                            // Update summary
+                            updateSummary(response);
+                        })
+                        .fail(function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Failed to remove item',
+                                confirmButtonColor: '#ff4757'
+                            });
+                        });
+                }
+            });
+        }
+
+        function updateSummary(data) {
+            $('.summary-item:eq(0) span:last').text(`₹${data.subTotal}`);
+            $('.summary-item:eq(1) span:last').text(`₹${data.tax}`);
+            $('.summary-item:eq(2) span:last').text(`₹${data.deliveryFee}`);
+            $('.summary-total span:last').text(`₹${data.total}`);
+        }
+
+        function applyPromoCode() {
+            const promoCode = $('#promoCode').val().trim();
+            if (!promoCode) {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Please enter a promo code',
+                    icon: 'error'
+                });
+                return;
+            }
+            
+            // Add promo code validation logic here
+            Swal.fire({
+                title: 'Invalid Code',
+                text: 'The entered promo code is invalid or expired',
+                icon: 'error'
+            });
+        }
+
+        function proceedToCheckout() {
+            $('.checkout-loader').removeClass('d-none');
+            $('button[onclick="proceedToCheckout()"]').prop('disabled', true);
+            if ($('.cart-item').length === 0) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Empty Cart',
+                    text: 'Please add items to your cart before proceeding to checkout',
+                    confirmButtonColor: '#ff4757'
+                });
+                return;
+            }
+            
+            window.location.href = '/Checkout';
+        }
+    </script>
+}

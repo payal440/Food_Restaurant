@@ -1,0 +1,138 @@
+@{
+    ViewData["Title"] = "Payment Process";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow bg-dark text-white">
+                <div class="card-header" style="background-color: #1a1a1a;">
+                    <h3 class="mb-0">Payment Details</h3>
+                </div>
+                <div class="card-body" style="background-color: #2a2a2a;">
+                    <div class="text-center mb-4">
+                        <h4>Total Amount: ₹@ViewBag.Amount</h4>
+                    </div>
+
+                    <div class="payment-methods mb-4">
+                        <h5 class="mb-3">Select Payment Method</h5>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="form-check payment-option">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod" checked>
+                                    <label class="form-check-label" for="cod">
+                                        <i class="fas fa-money-bill-wave me-2"></i>Cash on Delivery
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-check payment-option">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="gpay" value="gpay">
+                                    <label class="form-check-label" for="gpay">
+                                        <i class="fab fa-google-pay me-2"></i>Google Pay
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-check payment-option">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="card" value="card">
+                                    <label class="form-check-label" for="card">
+                                        <i class="fas fa-credit-card me-2"></i>Card
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form asp-action="CompletePayment" method="post" id="paymentForm">
+                        <input type="hidden" name="selectedPaymentMethod" id="selectedPaymentMethod" value="cod">
+                        
+                        <div id="cardDetails" style="display: none;">
+                            <div class="mb-3">
+                                <label class="form-label">Card Number</label>
+                                <input type="text" name="cardNumber" class="form-control bg-dark text-white" placeholder="1234 5678 9012 3456" maxlength="16">
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Expiry Date</label>
+                                    <input type="text" name="expiryDate" class="form-control bg-dark text-white" placeholder="MM/YY">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">CVV</label>
+                                    <input type="password" name="cvv" class="form-control bg-dark text-white" placeholder="123" maxlength="3">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="gpayDetails" style="display: none;">
+                            <div class="mb-3">
+                                <label class="form-label">UPI ID</label>
+                                <input type="text" name="upiId" class="form-control bg-dark text-white" placeholder="yourname@upi">
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success btn-lg">Proceed to Pay</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Handle payment method selection
+        document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.getElementById('selectedPaymentMethod').value = this.value;
+                document.getElementById('cardDetails').style.display = this.value === 'card' ? 'block' : 'none';
+                document.getElementById('gpayDetails').style.display = this.value === 'gpay' ? 'block' : 'none';
+
+                // Update form validation based on payment method
+                const cardInputs = document.querySelectorAll('#cardDetails input');
+                const gpayInputs = document.querySelectorAll('#gpayDetails input');
+
+                cardInputs.forEach(input => input.required = (this.value === 'card'));
+                gpayInputs.forEach(input => input.required = (this.value === 'gpay'));
+            });
+        });
+
+        // Form validation
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+            if (paymentMethod === 'card') {
+                const cardNumber = document.querySelector('input[name="cardNumber"]').value;
+                const expiryDate = document.querySelector('input[name="expiryDate"]').value;
+                const cvv = document.querySelector('input[name="cvv"]').value;
+
+                if (cardNumber.length !== 16) {
+                    alert('Please enter a valid 16-digit card number');
+                    e.preventDefault();
+                    return;
+                }
+
+                if (!/^\d{2}\/\d{2}$/.test(expiryDate)) {
+                    alert('Please enter expiry date in MM/YY format');
+                    e.preventDefault();
+                    return;
+                }
+
+                if (cvv.length !== 3) {
+                    alert('Please enter a valid 3-digit CVV');
+                    e.preventDefault();
+                    return;
+                }
+            } else if (paymentMethod === 'gpay') {
+                const upiId = document.querySelector('input[name="upiId"]').value;
+                if (!upiId || !/^[\w.-]+@@[\w.-]+$/.test(upiId)) {
+                    alert('Please enter a valid UPI ID');
+                    e.preventDefault();
+                    return;
+                }
+            }
+        });
+    </script>
+}

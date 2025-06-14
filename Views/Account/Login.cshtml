@@ -1,0 +1,20 @@
+@using FoodRestaurant.Models.ViewModels
+@model LoginViewModel
+
+<div class="auth-container">
+    <h2 class="auth-title">Login</h2>
+    <form asp-action="Login" asp-controller="Account" method="post">
+        <div class="form-group">
+            <input asp-for="Email" class="form-control" placeholder="Email">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input asp-for="Password" type="password" class="form-control" placeholder="Password">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary auth-btn">Login</button>
+        <div class="auth-links">
+            <a href="/Account/Register">Don't have an account? Register</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,238 @@
+@model FoodRestaurant.Models.TableBooking
+
+@{
+    ViewData["Title"] = "Book a Table";
+    Layout = "_DashboardLayout";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card booking-card shadow-lg">
+                <div class="card-body p-5">
+                    <form asp-action="Create" id="bookingForm">
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-4"></div>
+
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="CustomerName" class="form-label">Your Name</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        <input asp-for="CustomerName" class="form-control" placeholder="Enter your name" />
+                                    </div>
+                                    <span asp-validation-for="CustomerName" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Email" class="form-label">Email Address</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                                    </div>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="PhoneNumber" class="form-label">Phone Number</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                        <input asp-for="PhoneNumber" class="form-control" placeholder="Enter your phone number" />
+                                    </div>
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="NumberOfGuests" class="form-label">Number of Guests</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-users"></i></span>
+                                        <select asp-for="NumberOfGuests" class="form-select">
+                                            @for (int i = 1; i <= 20; i++)
+                                            {
+                                                <option value="@i">@i @(i == 1 ? "Guest" : "Guests")</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="NumberOfGuests" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="BookingDate" class="form-label">Date</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                        <input asp-for="BookingDate" type="date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                    </div>
+                                    <span asp-validation-for="BookingDate" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="BookingTime" class="form-label">Time</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                        <select asp-for="BookingTime" class="form-select" id="timeSlot">
+                                            <option value="">Select a date first</option>
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="BookingTime" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label asp-for="SpecialRequests" class="form-label">Special Requests</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-comment"></i></span>
+                                        <textarea asp-for="SpecialRequests" class="form-control" rows="3" placeholder="Any special requests or dietary requirements?"></textarea>
+                                    </div>
+                                    <span asp-validation-for="SpecialRequests" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-5">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">
+                                <i class="fas fa-check-circle me-2"></i>Book Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .booking-card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #2d3436;
+        }
+
+        .input-group {
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .input-group:focus-within {
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+        }
+
+        .input-group-text {
+            border: none;
+            background-color: #f8f9fa;
+            color: #6c757d;
+            padding: 0.75rem 1rem;
+        }
+
+        .form-control, .form-select {
+            border: none;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+        }
+
+        .form-control:focus, .form-select:focus {
+            box-shadow: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg,rgb(215, 63, 21),rgb(179, 27, 0));
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        .text-danger {
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Animation for form elements */
+        .booking-card {
+            animation: slideUp 0.6s ease-out;
+        }
+
+
+    </style>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+        $(document).ready(function() {
+            // Update available time slots when date changes
+            $('#BookingDate').change(function() {
+                var selectedDate = $(this).val();
+                if (selectedDate) {
+                    $.get('/BookTable/GetAvailableTimeSlots', { date: selectedDate }, function(slots) {
+                        var timeSelect = $('#timeSlot');
+                        timeSelect.empty();
+                        timeSelect.append($('<option>', {
+                            value: '',
+                            text: 'Select a time'
+                        }));
+                        
+                        slots.forEach(function(slot) {
+                            var time = new Date(slot);
+                            var timeString = time.toLocaleTimeString('en-US', {
+                                hour: '2-digit',
+                                minute: '2-digit',
+                                hour12: true
+                            });
+                            timeSelect.append($('<option>', {
+                                value: timeString,
+                                text: timeString
+                            }));
+                        });
+                    });
+                }
+            });
+
+            // Form validation and submission animation
+            $('#bookingForm').on('submit', function() {
+                if ($(this).valid()) {
+                    $('.btn-primary').prop('disabled', true)
+                        .html('<i class="fas fa-spinner fa-spin me-2"></i>Processing...');
+                }
+            });
+
+            // Input animations
+            $('.form-control, .form-select').focus(function() {
+                $(this).closest('.input-group').addClass('shadow-sm');
+            }).blur(function() {
+                $(this).closest('.input-group').removeClass('shadow-sm');
+            });
+        });
+    </script>
+}

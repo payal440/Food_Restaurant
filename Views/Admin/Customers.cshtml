@@ -1,0 +1,105 @@
+@model IEnumerable<string>
+
+@{
+    ViewData["Title"] = "Customer Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+    var orderDetails = ViewBag.OrderDetails as List<dynamic> ?? new List<dynamic>();
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-12">
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var customer in Model)
+                {
+                    var customerOrders = orderDetails.Where(o => o.CustomerName == customer).ToList();
+                    if (customerOrders.Any())
+                    {
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    <i class="fas fa-user me-2"></i>@customer
+                                </h6>
+                                <div class="text-muted">
+                                    <span class="badge bg-info me-2">
+                                        <i class="fas fa-shopping-cart me-1"></i>@customerOrders.Count Orders
+                                    </span>
+                                    <span class="badge bg-success">
+                                        <i class="fas fa-rupee-sign me-1"></i>@customerOrders.Sum(o => o.Amount)
+                                    </span>
+                                </div>
+                            </div>
+                            @foreach (var order in customerOrders.OrderByDescending(o => o.OrderDate))
+                            {
+                                <div class="card-body border-bottom">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                            <h5 class="mb-1">Order #@order.OrderId</h5>
+                                            <small class="text-muted">
+                                                <i class="far fa-calendar-alt me-1"></i>@order.OrderDate.ToString("MMM dd, yyyy HH:mm")
+                                            </small>
+                                        </div>
+                                        <div>
+                                            <span class="badge bg-@(order.Status.ToLower() == "completed" ? "success" : 
+                                                                  order.Status.ToLower() == "pending" ? "warning" : 
+                                                                  "secondary")">
+                                                <i class="fas fa-@(order.Status.ToLower() == "completed" ? "check" : 
+                                                                 order.Status.ToLower() == "pending" ? "clock" : 
+                                                                 "info-circle") me-1"></i>@order.Status
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-sm">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>Item</th>
+                                                    <th class="text-center">Quantity</th>
+                                                    <th class="text-end">Price</th>
+                                                    <th class="text-end">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in order.Items)
+                                                {
+                                                    <tr>
+                                                        <td>@item.DishName</td>
+                                                        <td class="text-center">@item.Quantity</td>
+                                                        <td class="text-end">₹@item.Price</td>
+                                                        <td class="text-end">₹@item.Total</td>
+                                                    </tr>
+                                                }
+                                                <tr class="table-light fw-bold">
+                                                    <td colspan="3" class="text-end">Total Amount:</td>
+                                                    <td class="text-end">₹@order.Amount</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                }
+            }
+            else
+            {
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i> No customer orders available
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('#customersTable').DataTable({
+                order: [[0, 'asc']] // Sort by customer name ascending
+            });
+        });
+    </script>
+}

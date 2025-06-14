@@ -1,0 +1,166 @@
+@model IEnumerable<(int OrderId, string CustomerName, DateTime OrderDate, decimal Amount, string Status)>
+
+@{
+    ViewData["Title"] = "Manage Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+    var _orderItems = (ViewBag.OrderItems as List<(int OrderId, string DishName, int Quantity, decimal Price)>) ?? new List<(int OrderId, string DishName, int Quantity, decimal Price)>();
+    var totalRevenue = ViewBag.TotalRevenue as decimal? ?? 0;
+
+    string GetStatusClass(string status)
+    {
+        return status.ToLower() switch
+        {
+            "pending" => "text-warning",
+            "preparing" => "text-primary",
+            "ready" => "text-success",
+            "delivered" => "text-secondary",
+            _ => "text-dark"
+        };
+    }
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold text-primary">Orders</h6>
+                    <h6 class="m-0 font-weight-bold text-success">Total Revenue: ₹@totalRevenue.ToString("N2")</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="ordersTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null && Model.Any())
+                                {
+                                    @foreach (var order in Model)
+                                    {
+                                        <tr>
+                                            <td>@order.OrderId</td>
+                                            <td>@order.CustomerName</td>
+                                            <td>
+                                                <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#orderItems@(order.OrderId)">
+                                                    View Items
+                                                </button>
+                                            </td>
+                                            <td>₹@order.Amount</td>
+                                            <td>
+                                                <select class="form-select status-select @GetStatusClass(order.Status)" data-order-id="@order.OrderId">
+                                                    <option value="Pending" selected="@(order.Status == "Pending")">Pending</option>
+                                                    <option value="Preparing" selected="@(order.Status == "Preparing")">Preparing</option>
+                                                    <option value="Ready" selected="@(order.Status == "Ready")">Ready</option>
+                                                    <option value="Delivered" selected="@(order.Status == "Delivered")">Delivered</option>
+                                                </select>
+                                            </td>
+                                            <td>@order.OrderDate</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" onclick="printOrder(@order.OrderId)">
+                                                    <i class="fas fa-print"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Order Items Modal -->
+                                        <div class="modal fade" id="orderItems@(order.OrderId)" tabindex="-1">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Order #@order.OrderId Items</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Item</th>
+                                                                    <th>Quantity</th>
+                                                                    <th>Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @{
+                                                                    var orderItems = _orderItems.Where(oi => oi.OrderId == order.OrderId);
+                                                                }
+                                                                @foreach (var item in orderItems)
+                                                                {
+                                                                    <tr>
+                                                                        <td>@item.DishName</td>
+                                                                        <td>@item.Quantity</td>
+                                                                        <td>₹@item.Price</td>
+                                                                    </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                        <div class="text-end mt-3">
+                                                            <strong>Total: ₹@order.Amount</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="7" class="text-center">No orders available</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('#ordersTable').DataTable({
+                order: [[5, 'desc']] // Sort by date column descending
+            });
+
+            $('.status-select').change(function() {
+                var orderId = $(this).data('order-id');
+                var newStatus = $(this).val();
+                
+                $.ajax({
+                    url: '/Admin/UpdateOrderStatus',
+                    type: 'POST',
+                    data: {
+                        orderId: orderId,
+                        status: newStatus
+                    },
+                    success: function(result) {
+                        if (result.success) {
+                            toastr.success('Order status updated successfully');
+                        } else {
+                            toastr.error('Failed to update order status');
+                        }
+                    },
+                    error: function() {
+                        toastr.error('An error occurred while updating the order status');
+                    }
+                });
+            });
+        });
+
+        function printOrder(orderId) {
+            window.open('/Admin/PrintOrder/' + orderId, '_blank');
+        }
+    </script>
+}

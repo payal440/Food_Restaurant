@@ -1,0 +1,154 @@
+@{
+    ViewData["Title"] = "Orders";
+    Layout = "_DashboardLayout";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-sm">
+                <div class="card-header bg-gradient-primary text-white">
+                    <h4 class="mb-0">Order Details</h4>
+                </div>
+                <div class="card-body">
+                    <div id="orderContent">
+                        <!-- Content will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .bg-gradient-primary {
+            background: linear-gradient(45deg,rgb(20, 21, 21),rgb(20, 19, 20));
+        }
+
+        .order-item-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .order-item-img:hover {
+            transform: scale(1.1);
+        }
+
+        .table > :not(caption) > * > * {
+            padding: 1rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+        }
+
+        .empty-cart-message {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .empty-cart-image {
+            width: 180px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @@keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const orderContent = $('#orderContent');
+            
+            if (cart.length > 0) {
+                let html = `
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Item</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>`;
+                
+                cart.forEach(item => {
+                    html += `
+                        <tr>
+                            <td>
+                                <img src="${item.image}" alt="${item.name}" class="order-item-img" 
+                                     onerror="this.onerror=null; this.src='/images/dishes/default-dish.jpg';">
+                            </td>
+                            <td>${item.name}</td>
+                            <td>₹${item.price.toFixed(2)}</td>
+                            <td>${item.quantity}</td>
+                            <td>₹${(item.price * item.quantity).toFixed(2)}</td>
+                        </tr>`;
+                });
+                
+                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                
+                html += `
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4" class="text-end fw-bold">Total Amount:</td>
+                                    <td class="fw-bold">₹${total.toFixed(2)}</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="text-end mt-4">
+                        <a href="/Menu" class="btn btn-outline-primary me-2">
+                            <i class="fas fa-utensils me-2"></i>Add More Items
+                        </a>
+                        <a href="@Url.Action("Process", "Payment", new { amount = @Model.TotalAmount })" class="btn btn-success" id="confirmOrder">Confirm Order</a>
+                    </div>`;
+                
+                orderContent.html(html);
+            } else {
+                orderContent.html(`
+                    <div class="empty-cart-message">
+                        <img src="/images/empty-cart.svg" alt="Empty Cart" class="empty-cart-image" 
+                             onerror="this.onerror=null; this.src='/images/empty-cart.png';">
+                        <h4 class="mb-3">No items in the order</h4>
+                        <p class="text-muted mb-4">Your order appears to be empty</p>
+                        <a href="/Menu" class="btn btn-primary">
+                            <i class="fas fa-utensils me-2"></i>Browse Menu
+                        </a>
+                    </div>
+                `);
+            }
+        });
+
+        function confirmOrder() {
+            // Here you can add the logic to save the order to the database
+            // For now, we'll just clear the cart and show a success message
+            localStorage.removeItem('cart');
+            alert('Order placed successfully!');
+            window.location.href = '/Menu';
+        }
+    </script>
+}

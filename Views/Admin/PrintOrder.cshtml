@@ -1,0 +1,100 @@
+@model FoodRestaurant.Models.ViewModels.OrderViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order #@Model.Id - Print View</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .print-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .order-details {
+            margin-bottom: 20px;
+        }
+        .table th {
+            background-color: #f8f9fa;
+        }
+        @@media print {
+            .no-print {
+                display: none;
+            }
+            body {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="print-header">
+            <h2>Food Restaurant</h2>
+            <p>Order Invoice</p>
+        </div>
+
+        <div class="order-details">
+            <div class="row">
+                <div class="col-6">
+                    <p><strong>Order #:</strong> @Model.Id</p>
+                    <p><strong>Date:</strong> @Model.OrderDate.ToString("MMM dd, yyyy hh:mm tt")</p>
+                    <p><strong>Status:</strong> @Model.Status</p>
+                </div>
+                <div class="col-6">
+                    <p><strong>Customer ID:</strong> @Model.UserId</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.OrderItems != null)
+                    {
+                        foreach (var item in Model.OrderItems)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Quantity</td>
+                                <td>₹@item.Price.ToString("0.00")</td>
+                                <td>₹@((item.Price * item.Quantity).ToString("0.00"))</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-end"><strong>Total Amount:</strong></td>
+                        <td><strong>₹@Model.TotalAmount.ToString("0.00")</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="mt-4">
+            <p><small>Thank you for your order!</small></p>
+        </div>
+
+        <div class="mt-4 no-print">
+            <button class="btn btn-primary" onclick="window.print()">Print</button>
+            <button class="btn btn-secondary" onclick="window.close()">Close</button>
+        </div>
+    </div>
+</body>
+</html>

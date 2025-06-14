@@ -1,0 +1,402 @@
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "_DashboardLayout";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <!-- Left side - User Info Card -->
+        <div class="col-lg-4 mb-4">
+            <div class="user-info-card">
+                <div class="avatar-section">
+                    <div class="avatar-circle">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="status-badge online"></div>
+                </div>
+                <div class="user-details text-center mt-3">
+                    <h4 class="user-name mb-1">@Model?.FirstName @Model?.LastName</h4>
+                    <p class="user-email">@Model?.Email</p>
+                </div>
+                <div class="user-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="stat-label">Orders</span>
+                        <span class="stat-value">12</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-heart"></i>
+                        <span class="stat-label">Favorites</span>
+                        <span class="stat-value">8</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-star"></i>
+                        <span class="stat-label">Reviews</span>
+                        <span class="stat-value">4.8</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right side - Edit Form -->
+        <div class="col-lg-8">
+            <div class="edit-profile-card">
+                <div class="card-header bg-gradient-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-user-edit me-2"></i>Edit Profile</h4>
+                </div>
+                <div class="card-body">
+                    <form id="profileForm" method="post">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        <input type="text" class="form-control" id="firstName" name="FirstName" value="@Model?.FirstName" required placeholder="First Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        <input type="text" class="form-control" id="lastName" name="LastName" value="@Model?.LastName" required placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        <input type="email" class="form-control" id="email" name="Email" value="@Model?.Email" required readonly placeholder="Email Address">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                        <input type="tel" class="form-control" id="phoneNumber" name="PhoneNumber" value="@Model?.PhoneNumber" maxlength="10" placeholder="Phone Number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                        <textarea class="form-control" id="address" name="Address" rows="3" placeholder="Default Delivery Address">@Model?.Address</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-gradient">
+                                    <i class="fas fa-save me-2"></i>Save Changes
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .user-info-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .user-info-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .avatar-section {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 1.5rem;
+    }
+
+    .avatar-circle {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #FF6B6B, #FFE66D);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+    }
+
+    .avatar-circle i {
+        font-size: 3rem;
+        color: white;
+    }
+
+    .status-badge {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 3px solid white;
+    }
+
+    .status-badge.online {
+        background: #2ecc71;
+    }
+
+    .user-name {
+        color: #2d3436;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .user-email {
+        color: #636e72;
+        font-size: 0.9rem;
+    }
+
+    .user-stats {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #eee;
+    }
+
+    .stat-item {
+        text-align: center;
+        transition: transform 0.2s ease;
+    }
+
+    .stat-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .stat-item i {
+        font-size: 1.5rem;
+        color: #FF6B6B;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .stat-label {
+        display: block;
+        font-size: 0.8rem;
+        color: #636e72;
+        margin-bottom: 0.25rem;
+    }
+
+    .stat-value {
+        font-weight: 600;
+        color: #2d3436;
+    }
+
+    .edit-profile-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .edit-profile-card .card-header {
+        background: linear-gradient(45deg, rgb(13, 13, 14), rgb(13, 13, 14));
+        color: white;
+        padding: 1.5rem;
+        border-bottom: none;
+    }
+
+    .edit-profile-card .card-body {
+        padding: 2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .input-group {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    .input-group:focus-within {
+        box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
+    }
+
+    .input-group-text {
+        background: white;
+        border: none;
+        color: #FF6B6B;
+        padding: 0.75rem 1rem;
+    }
+
+    .form-control {
+        border: none;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+        border-color: transparent;
+    }
+
+    .btn-gradient {
+        background: linear-gradient(45deg, rgb(13, 13, 14), rgb(13, 13, 14));
+        border: none;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 15px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .btn-gradient:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    }
+</style>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Add hover effect to input groups
+            $('.input-group').hover(
+                function() { $(this).addClass('input-hover'); },
+                function() { $(this).removeClass('input-hover'); }
+            );
+
+            // Animate stats on hover
+            $('.stat-item').hover(
+                function() {
+                    $(this).find('i').addClass('fa-bounce');
+                    $(this).find('.stat-value').addClass('text-primary');
+                },
+                function() {
+                    $(this).find('i').removeClass('fa-bounce');
+                    $(this).find('.stat-value').removeClass('text-primary');
+                }
+            );
+
+            // Add animation to form submission
+            $('#profileForm').on('submit', function(e) {
+                e.preventDefault();
+                const btn = $(this).find('button[type="submit"]');
+                btn.prop('disabled', true)
+                   .html('<i class="fas fa-spinner fa-spin me-2"></i>Saving...');
+
+                // Simulate API call (replace with actual form submission)
+                setTimeout(() => {
+                    btn.html('<i class="fas fa-check me-2"></i>Saved!')
+                       .removeClass('btn-gradient')
+                       .addClass('btn-success');
+
+                    // Show success message with animation
+                    $('<div class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0 m-3" role="alert">'
+                        + '<i class="fas fa-check-circle me-2"></i>Profile updated successfully!'
+                        + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
+                        + '</div>').appendTo('body').hide().slideDown();
+
+                    setTimeout(() => {
+                        btn.prop('disabled', false)
+                           .html('<i class="fas fa-save me-2"></i>Save Changes')
+                           .removeClass('btn-success')
+                           .addClass('btn-gradient');
+                        this.submit();
+                    }, 1000);
+                }, 1500);
+            });
+
+            // Add input focus effects
+            $('.form-control').focus(function() {
+                $(this).closest('.input-group').addClass('input-focus');
+            }).blur(function() {
+                $(this).closest('.input-group').removeClass('input-focus');
+            });
+
+            // Animate user info card on load
+            $('.user-info-card').hide().fadeIn(1000);
+            $('.edit-profile-card').hide().fadeIn(1000);
+
+            // Add ripple effect to buttons
+            $('.btn').on('click', function(e) {
+                let ripple = $('<span class="ripple"></span>');
+                $(this).append(ripple);
+                let x = e.clientX - $(this).offset().left;
+                let y = e.clientY - $(this).offset().top;
+                ripple.css({ left: x + 'px', top: y + 'px' });
+                setTimeout(() => ripple.remove(), 1000);
+            });
+        });
+    </script>
+
+    <style>
+        /* Additional animation styles */
+        .input-hover {
+            transform: translateY(-2px);
+        }
+
+        .input-focus {
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3) !important;
+        }
+
+        .ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @@keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .alert {
+            z-index: 1050;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @@keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .text-primary {
+            color: #FF6B6B !important;
+            transition: color 0.3s ease;
+        }
+
+        .fa-bounce {
+            animation: bounce 0.6s ease infinite;
+        }
+
+        @@keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
+}

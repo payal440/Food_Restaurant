@@ -1,0 +1,220 @@
+@{
+    ViewData["Title"] = "Gallery - Food Heaven";
+    Layout = ViewBag.IsLoggedIn ? "_DashboardLayout" : "_Layout";
+}
+
+<!-- Gallery Header -->
+<div class="gallery-header">
+    <div class="overlay"></div>
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <span class="badge bg-primary mb-3">Our Gallery</span>
+                <h1 class="display-3 fw-bold text-white mb-3">Visual Journey</h1>
+                <p class="lead text-white mb-4">Experience the ambiance and culinary artistry of Food Heaven</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gallery Content -->
+<section class="gallery-section py-5">
+    <div class="container">
+        <!-- Gallery Filter -->
+        <div class="gallery-filter text-center mb-5">
+            <button class="btn btn-outline-primary active mx-2" data-filter="all">All</button>
+            <button class="btn btn-outline-primary mx-2" data-filter="restaurant">Restaurant</button>
+            <button class="btn btn-outline-primary mx-2" data-filter="food">Food</button>
+            <button class="btn btn-outline-primary mx-2" data-filter="staff">Staff</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="row g-4 gallery-grid">
+            <!-- Restaurant Images -->
+            <div class="col-md-6 col-lg-4 gallery-item" data-category="restaurant">
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" alt="Restaurant Interior" class="img-fluid">
+                    <div class="gallery-overlay">
+                        <h5>Elegant Dining Area</h5>
+                        <p>Experience luxury dining in our main hall</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 gallery-item" data-category="restaurant">
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b" alt="Private Dining" class="img-fluid">
+                    <div class="gallery-overlay">
+                        <h5>Private Dining Room</h5>
+                        <p>Perfect for special occasions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food Images -->
+            <div class="col-md-6 col-lg-4 gallery-item" data-category="food">
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1574653853027-5382a3d23a15" alt="Signature Dish" class="img-fluid">
+                    <div class="gallery-overlay">
+                        <h5>Butter Chicken</h5>
+                        <p>Our signature dish</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 gallery-item" data-category="food">
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe" alt="Dessert" class="img-fluid">
+                    <div class="gallery-overlay">
+                        <h5>Gulab Jamun</h5>
+                        <p>Traditional Indian dessert</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Staff Images -->
+            <div class="col-md-6 col-lg-4 gallery-item" data-category="staff">
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c" alt="Chef" class="img-fluid">
+                    <div class="gallery-overlay">
+                        <h5>Our Master Chef</h5>
+                        <p>Creating culinary masterpieces</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 gallery-item" data-category="staff">
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937" alt="Service Staff" class="img-fluid">
+                    <div class="gallery-overlay">
+                        <h5>Our Service Team</h5>
+                        <p>Dedicated to your dining experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Styles {
+    <style>
+        .gallery-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .gallery-header .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-card:hover .gallery-overlay {
+            bottom: 0;
+        }
+
+        .gallery-overlay h5 {
+            margin: 0;
+            color: white;
+        }
+
+        .gallery-overlay p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .gallery-filter .btn {
+            border-radius: 25px;
+            padding: 8px 20px;
+            margin-bottom: 10px;
+        }
+
+        .gallery-filter .btn.active {
+            background-color: var(--bs-primary);
+            color: white;
+        }
+
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item.hidden {
+            display: none;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Gallery filtering
+            $('.gallery-filter button').click(function() {
+                const filter = $(this).data('filter');
+                
+                // Update active button
+                $('.gallery-filter button').removeClass('active');
+                $(this).addClass('active');
+                
+                // Filter items
+                if (filter === 'all') {
+                    $('.gallery-item').fadeIn();
+                } else {
+                    $('.gallery-item').hide();
+                    $('.gallery-item[data-category="' + filter + '"]').fadeIn();
+                }
+            });
+
+            // Image error handling
+            $('img').on('error', function() {
+                $(this).attr('src', '/images/default-gallery.jpg');
+            });
+
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+        });
+    </script>
+}

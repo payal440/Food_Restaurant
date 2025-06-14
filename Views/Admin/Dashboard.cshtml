@@ -1,0 +1,432 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="https://cdn.jsdelivr.net/npm/apexcharts@3.40.0/dist/apexcharts.css" rel="stylesheet">
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-12">
+            <!-- Statistics Cards -->
+            <div class="row">
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Total Orders</div>
+                                    <div id="totalOrders" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        Revenue</div>
+                                    <div id="totalRevenue" class="h5 mb-0 font-weight-bold text-gray-800">₹0</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-rupee-sign fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                        Products</div>
+                                    <div id="totalProducts" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        Customers</div>
+                                    <div id="totalCustomers" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Trend Chart -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold text-primary">Order Trends</h6>
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="trendTimeRange" data-bs-toggle="dropdown">
+                            Last 7 Days
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#" data-range="7">Last 7 Days</a>
+                            <a class="dropdown-item" href="#" data-range="30">Last 30 Days</a>
+                            <a class="dropdown-item" href="#" data-range="90">Last 3 Months</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="orderTrendChart" style="height: 300px;"></div>
+                </div>
+            </div>
+
+            <!-- Quick Actions & Top Products -->
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card shadow h-100">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Quick Actions</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-grid gap-2">
+                                <a href="/Admin/Products/Create" class="btn btn-primary">
+                                    <i class="fas fa-plus me-2"></i>Add New Product
+                                </a>
+                                <a href="/Admin/Categories/Create" class="btn btn-info">
+                                    <i class="fas fa-folder-plus me-2"></i>Add Category
+                                </a>
+                                <a href="/Admin/Orders?status=pending" class="btn btn-warning">
+                                    <i class="fas fa-clock me-2"></i>View Pending Orders
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card shadow h-100">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Top Selling Products</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Category</th>
+                                            <th>Sales</th>
+                                            <th>Revenue</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="topProducts">
+                                        <tr><td colspan="4" class="text-center">Loading...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table Bookings -->            
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold text-primary">Recent Table Bookings</h6>
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="bookingFilterDropdown" data-bs-toggle="dropdown">
+                            Filter Status
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item active" href="#" data-status="all">All</a>
+                            <a class="dropdown-item" href="#" data-status="pending">Pending</a>
+                            <a class="dropdown-item" href="#" data-status="confirmed">Confirmed</a>
+                            <a class="dropdown-item" href="#" data-status="cancelled">Cancelled</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Booking ID</th>
+                                    <th>Customer</th>
+                                    <th>Contact</th>
+                                    <th>Date & Time</th>
+                                    <th>Guests</th>
+                                    <th>Special Requests</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBookings">
+                                <tr>
+                                    <td colspan="8" class="text-center">Loading table bookings...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Orders -->            
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Recent Orders</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" width="100%" cellspacing="0" id="recentOrders">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="6" class="text-center">No recent orders</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.40.0/dist/apexcharts.min.js"></script>
+    <script>
+        $(function() {
+            // Initialize order trend chart
+            var options = {
+            series: [{
+                name: 'Orders',
+                data: [31, 40, 28, 51, 42, 109, 100]
+            }],
+            chart: {
+                type: 'area',
+                height: 300,
+                toolbar: {
+                    show: false
+                }
+            },
+            colors: ['#4e73df'],
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.7,
+                    opacityTo: 0.3
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            xaxis: {
+                categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return val + " orders"
+                    }
+                }
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#orderTrendChart"), options);
+        chart.render();
+
+        // Real-time statistics update
+        function updateStats() {
+            fetch('/Admin/GetDashboardStats')
+                .then(response => response.json())
+                .then(data => {
+                    // Update statistics cards
+                    document.querySelector('#totalOrders').textContent = data.stats.totalOrders;
+                    document.querySelector('#totalRevenue').textContent = '₹' + data.stats.totalRevenue;
+                    document.querySelector('#totalProducts').textContent = data.stats.totalProducts;
+                    document.querySelector('#totalCustomers').textContent = data.stats.totalCustomers;
+
+                    // Update top products
+                    const topProductsHtml = data.stats.topProducts.map(p => `
+                        <tr>
+                            <td>${p.name}</td>
+                            <td>${p.category}</td>
+                            <td>${p.sales}</td>
+                            <td>₹${p.revenue}</td>
+                        </tr>
+                    `).join('');
+                    document.querySelector('#topProducts').innerHTML = topProductsHtml || '<tr><td colspan="4" class="text-center">No products found</td></tr>';
+
+                    // Update recent orders
+                    const recentOrdersHtml = data.recentOrders.map(order => `
+                        <tr>
+                            <td>#${order.id}</td>
+                            <td>${order.customerName}</td>
+                            <td>
+                                ${order.items.map(item => `
+                                    <div class="mb-1">
+                                        ${item.dishName} x ${item.quantity} 
+                                        <span class="text-muted">(₹${item.price})</span>
+                                    </div>
+                                `).join('')}
+                            </td>
+                            <td>₹${order.totalAmount}</td>
+                            <td>
+                                <span class="badge badge-${order.status.toLowerCase() === 'pending' ? 'warning' : 
+                                    order.status.toLowerCase() === 'completed' ? 'success' : 
+                                    order.status.toLowerCase() === 'cancelled' ? 'danger' : 'secondary'}">
+                                    ${order.status}
+                                </span>
+                            </td>
+                            <td>${new Date(order.orderDate).toLocaleString()}</td>
+                        </tr>
+                    `).join('');
+                    const recentOrdersTable = document.querySelector('#recentOrders');
+                    if (recentOrdersTable) {
+                        recentOrdersTable.innerHTML = recentOrdersHtml || '<tr><td colspan="6" class="text-center">No recent orders</td></tr>';
+                    }
+                });
+        }
+
+        // Update stats every 30 seconds
+        updateStats();
+        setInterval(updateStats, 30000);
+
+        // Handle trend time range changes
+        document.querySelectorAll('[data-range]').forEach(item => {
+            item.addEventListener('click', e => {
+                e.preventDefault();
+                const days = e.target.dataset.range;
+                document.querySelector('#trendTimeRange').textContent = `Last ${days} Days`;
+                // TODO: Fetch and update chart data based on selected range
+            });
+        });
+
+        // Update table bookings
+        function updateTableBookings(statusFilter = 'all') {
+            fetch('/Admin/GetTableBookings')
+                .then(response => response.json())
+                .then(data => {
+                    const filteredData = statusFilter === 'all' 
+                        ? data 
+                        : data.filter(booking => booking.status.toLowerCase() === statusFilter.toLowerCase());
+
+                    const bookingsHtml = filteredData.length > 0 ? filteredData.map(booking => `
+                        <tr>
+                            <td>#${booking.id}</td>
+                            <td>${booking.customerName}</td>
+                            <td>
+                                <div><i class="fas fa-envelope"></i> ${booking.email}</div>
+                                <div><i class="fas fa-phone"></i> ${booking.phone}</div>
+                            </td>
+                            <td>
+                                <div><i class="fas fa-calendar"></i> ${new Date(booking.date).toLocaleDateString()}</div>
+                                <div><i class="fas fa-clock"></i> ${booking.time}</div>
+                            </td>
+                            <td class="text-center">
+                                <span class="badge bg-info">
+                                    <i class="fas fa-users"></i> ${booking.numberOfGuests}
+                                </span>
+                            </td>
+                            <td>
+                                <small>${booking.specialRequests || 'None'}</small>
+                            </td>
+                            <td>
+                                <span class="badge badge-${booking.status.toLowerCase() === 'pending' ? 'warning' : 
+                                    booking.status.toLowerCase() === 'confirmed' ? 'success' : 
+                                    booking.status.toLowerCase() === 'cancelled' ? 'danger' : 'secondary'}">
+                                    ${booking.status}
+                                </span>
+                            </td>
+                            <td>
+                                ${booking.status === 'Pending' ? `
+                                    <div class="btn-group">
+                                        <button onclick="updateBookingStatus(${booking.id}, 'Confirmed')" 
+                                            class="btn btn-sm btn-success" title="Confirm Booking">
+                                            <i class="fas fa-check"></i>
+                                        </button>
+                                        <button onclick="updateBookingStatus(${booking.id}, 'Cancelled')" 
+                                            class="btn btn-sm btn-danger" title="Cancel Booking">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                ` : ''}
+                            </td>
+                        </tr>
+                    `).join('') : '<tr><td colspan="8" class="text-center">No table bookings found</td></tr>';
+                    
+                    document.querySelector('#tableBookings').innerHTML = bookingsHtml;
+                });
+        }
+
+        function updateBookingStatus(bookingId, status) {
+            fetch('/Admin/UpdateBookingStatus', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ bookingId, status })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    updateTableBookings(document.querySelector('#bookingFilterDropdown + .dropdown-menu .active').dataset.status);
+                } else {
+                    alert('Failed to update booking status');
+                }
+            });
+        }
+
+        // Handle booking status filter
+        document.querySelectorAll('[data-status]').forEach(item => {
+            item.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelectorAll('[data-status]').forEach(el => el.classList.remove('active'));
+                e.target.classList.add('active');
+                document.querySelector('#bookingFilterDropdown').textContent = 
+                    'Filter: ' + e.target.textContent;
+                updateTableBookings(e.target.dataset.status);
+            });
+        });
+
+        // Update table bookings every 30 seconds
+        updateTableBookings();
+        setInterval(() => {
+            updateTableBookings(document.querySelector('#bookingFilterDropdown + .dropdown-menu .active').dataset.status);
+        }, 30000);
+    });
+    </script>
+}

@@ -1,0 +1,165 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = FoodRestaurant
+build_property.RootNamespace = FoodRestaurant
+build_property.ProjectDir = E:\MCA SECOND SEM\asp\FOOD_RESTAUARENT _FINALLY\FOOD_RESTAUARENT (2)\FOOD_RESTAUARENT\FoodRestaurant\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\MCA SECOND SEM\asp\FOOD_RESTAUARENT _FINALLY\FOOD_RESTAUARENT (2)\FOOD_RESTAUARENT\FoodRestaurant
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/About/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Account/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Account/Menu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxNZW51LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Account/Orders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxPcmRlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Account/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Admin/AddProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkUHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Admin/Categories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2F0ZWdvcmllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Admin/Customers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3VzdG9tZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Admin/ManageDishes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlRGlzaGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Admin/Orders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Admin/PrintOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJpbnRPcmRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Admin/Products.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvZHVjdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Booking/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/BookTable/Confirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1RhYmxlXENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/BookTable/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1RhYmxlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/BookTable/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1RhYmxlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Cart/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDaGVja291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Cart/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Cart/OrderConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxPcmRlckNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Gallery/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FsbGVyeVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Image/Upload.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW1hZ2VcVXBsb2FkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Menu/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Payment/Process.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxQcm9jZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Payment/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxTdWNjZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Shared/_DashboardLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EYXNoYm9hcmRMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Shared/_SideNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlTmF2LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/MCA SECOND SEM/asp/FOOD_RESTAUARENT _FINALLY/FOOD_RESTAUARENT (2)/FOOD_RESTAUARENT/FoodRestaurant/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-2jbe5td8c4

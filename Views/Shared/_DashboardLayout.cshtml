@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @RenderSection("Styles", required: false)
+    <style>
+        /* Navbar Styles */
+        .navbar {
+            background-color: #ff4757;
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            color: #fff !important;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .brand-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* User Dropdown Styles */
+        .user-dropdown {
+            min-width: 280px;
+            padding: 0.5rem 0;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .user-dropdown .dropdown-header {
+            padding: 1rem;
+            background-color: #f8f9fa;
+        }
+
+        .user-dropdown .dropdown-item {
+            padding: 0.75rem 1rem;
+        }
+
+        .user-dropdown .dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .user-avatar {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="~/images/logo/spice-haven-logo.png" alt="Spice Haven" class="logo-img">
+                <span class="brand-text">Food heaven</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/Menu"><i class="fas fa-utensils me-2"></i>Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/Account/Profile"><i class="fas fa-user me-2"></i>My Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/Account/Orders"><i class="fas fa-shopping-bag me-2"></i>My Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/BookTable/Create"><i class="fas fa-chair me-2"></i>Book Table</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown">
+                            <div class="d-inline-flex align-items-center">
+                                <div class="user-avatar me-2">
+                                    <i class="fas fa-user-circle fa-lg text-light"></i>
+                                </div>
+                                <span class="text-light">@Context.Session.GetString("UserName")</span>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end user-dropdown">
+                            <li><a class="dropdown-item text-danger" href="/Account/Logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 pt-4">
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                @TempData["Success"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        @RenderBody()
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

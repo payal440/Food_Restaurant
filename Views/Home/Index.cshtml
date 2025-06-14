@@ -1,0 +1,134 @@
+<style>
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin-top: -56px; /* Adjust this value based on your navbar height */
+    overflow: hidden;
+}
+
+.hero-content {
+    padding-top: 56px; /* Add padding equal to navbar height */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+@@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+}
+</style>
+<div class="hero">
+    <div class="video-preloader">
+        <div class="spinner"></div>
+    </div>
+    <div class="hero-slideshow">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4')"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b')"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9')"></div>
+    </div>
+    <video class="hero-video" autoplay muted loop playsinline>
+        <source src="https://player.vimeo.com/external/414974055.hd.mp4?s=7cc0a61eaa8c362c402f365cec0577f75c10be87&profile_id=175" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-content animate-fadeIn">
+            <h1>Welcome to Food Heaven</h1>
+            <p>Experience the finest flavors of authentic cuisine</p>
+            <a href="/Menu" class="btn btn-primary btn-lg">Explore Menu</a>
+        </div>
+    </div>
+</div>
+
+<section class="featured-dishes py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Featured Dishes</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="menu-card">
+                    <div class="menu-image-container">
+                        <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398" 
+                             alt="Butter Chicken" class="dish-image">
+                        <div class="dish-overlay">Main Course</div>
+                    </div>
+                    <div class="menu-card-body">
+                        <h5>Butter Chicken</h5>
+                        <p>Creamy, rich curry with tender chicken pieces</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="menu-price">₹299</span>
+                            <button onclick="addToCart(1, 'Butter Chicken', 299)" class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="menu-card">
+                    <div class="menu-image-container">
+                        <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0" 
+                             alt="Paneer Tikka" class="dish-image">
+                        <div class="dish-overlay">Starters</div>
+                    </div>
+                    <div class="menu-card-body">
+                        <h5>Paneer Tikka</h5>
+                        <p>Grilled cottage cheese with spicy marinade</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="menu-price">₹249</span>
+                            <button onclick="addToCart(2, 'Paneer Tikka', 249)" class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="menu-card">
+                    <div class="menu-image-container">
+                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8" 
+                             alt="Biryani" class="dish-image">
+                        <div class="dish-overlay">Main Course</div>
+                    </div>
+                    <div class="menu-card-body">
+                        <h5>Special Biryani</h5>
+                        <p>Aromatic rice with tender meat and spices</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="menu-price">₹349</span>
+                            <button onclick="addToCart(3, 'Special Biryani', 349)" class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,215 @@
+@model FoodRestaurant.Models.TableBooking
+
+@{
+    ViewData["Title"] = "Booking Confirmation";
+    Layout = "_DashboardLayout";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="confirmation-card">
+                <div class="success-animation">
+                    <div class="checkmark">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+
+                <div class="text-center mb-5">
+                    <h1 class="display-4 fw-bold text-success mb-3">Booking Confirmed!</h1>
+                    <p class="lead text-muted">Thank you for choosing our restaurant. We look forward to serving you!</p>
+                </div>
+
+                <div class="booking-details">
+                    <div class="detail-card mb-4">
+                        <h3 class="detail-title">Booking Information</h3>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="detail-item">
+                                    <i class="fas fa-hashtag"></i>
+                                    <div>
+                                        <label>Booking Reference</label>
+                                        <span>#@Model.Id.ToString("D6")</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-item">
+                                    <i class="fas fa-user"></i>
+                                    <div>
+                                        <label>Guest Name</label>
+                                        <span>@Model.CustomerName</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <div>
+                                        <label>Date</label>
+                                        <span>@Model.BookingDate.ToString("dddd, MMMM d, yyyy")</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <label>Time</label>
+                                        <span>@Model.BookingTime.ToString("h:mm tt")</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <label>Number of Guests</label>
+                                        <span>@Model.NumberOfGuests @(Model.NumberOfGuests == 1 ? "Guest" : "Guests")</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-item">
+                                    <i class="fas fa-tag"></i>
+                                    <div>
+                                        <label>Status</label>
+                                        <span class="badge bg-success">@Model.Status</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3 class="detail-title">Contact Information</h3>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="detail-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <label>Email</label>
+                                        <span>@Model.Email</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-item">
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <label>Phone</label>
+                                        <span>@Model.PhoneNumber</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.SpecialRequests))
+                    {
+                        <div class="detail-card">
+                            <h3 class="detail-title">Special Requests</h3>
+                            <p class="mb-0">@Model.SpecialRequests</p>
+                        </div>
+                    }
+                </div>
+
+                <div class="text-center mt-5">
+                    <a href="/" class="btn btn-primary btn-lg me-3">
+                        <i class="fas fa-home me-2"></i>Back to Home
+                    </a>
+                    <a href="/Menu" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-utensils me-2"></i>View Menu
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .confirmation-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .success-animation {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .checkmark {
+            display: inline-block;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .checkmark i {
+            font-size: 5rem;
+            color: #28a745;
+            animation: fadeIn 0.5s ease-out 0.5s both;
+        }
+
+        .detail-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #2d3436;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .detail-item i {
+            font-size: 1.2rem;
+            color: #6c757d;
+            width: 24px;
+            text-align: center;
+            margin-top: 3px;
+        }
+
+        .detail-item label {
+            font-size: 0.875rem;
+            color: #6c757d;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .detail-item span {
+            font-weight: 500;
+            color: #2d3436;
+            display: block;
+        }
+
+        .badge {
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+
+    </style>
+}

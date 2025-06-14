@@ -1,0 +1,607 @@
+@model List<CartItem>
+@{
+    ViewData["Title"] = "Checkout - Spice Heaven";
+}
+
+<div class="checkout-header">
+    <div class="overlay"></div>
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <span class="badge bg-primary mb-3">Secure Checkout</span>
+                <h1 class="display-3 fw-bold text-white mb-3">Complete Your Order</h1>
+                <p class="lead text-white mb-4">Just a few steps away from enjoying your meal</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="checkout-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="checkout-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Delivery Details</div>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Payment</div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Confirmation</div>
+                    </div>
+                </div>
+
+                <div class="checkout-form-container">
+                    <form id="checkoutForm" class="checkout-form">
+                        <!-- Step 1: Delivery Details -->
+                        <div class="checkout-step" id="step1">
+                            <h4 class="mb-4">Delivery Information</h4>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Full Name</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="address">Delivery Address</label>
+                                        <textarea class="form-control" id="address" rows="3" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="city">City</label>
+                                        <input type="text" class="form-control" id="city" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="pincode">Pincode</label>
+                                        <input type="text" class="form-control" id="pincode" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="instructions">Delivery Instructions (Optional)</label>
+                                        <textarea class="form-control" id="instructions" rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Payment -->
+                        <div class="checkout-step" id="step2" style="display: none;">
+                            <h4 class="mb-4">Payment Method</h4>
+                            <div class="payment-methods">
+                                <div class="payment-method">
+                                    <input type="radio" name="payment" id="card" value="card" checked>
+                                    <label for="card">
+                                        <i class="fas fa-credit-card"></i>
+                                        Credit/Debit Card
+                                    </label>
+                                </div>
+                                <div class="payment-method">
+                                    <input type="radio" name="payment" id="upi" value="upi">
+                                    <label for="upi">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        UPI
+                                    </label>
+                                </div>
+                                <div class="payment-method">
+                                    <input type="radio" name="payment" id="cod" value="cod">
+                                    <label for="cod">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                        Cash on Delivery
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="card-details mt-4">
+                                <div class="row g-4">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="cardNumber">Card Number</label>
+                                            <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="expiry">Expiry Date</label>
+                                            <input type="text" class="form-control" id="expiry" placeholder="MM/YY">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="cvv">CVV</label>
+                                            <input type="text" class="form-control" id="cvv" placeholder="123">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Confirmation -->
+                        <div class="checkout-step" id="step3" style="display: none;">
+                            <div class="order-summary">
+                                <h4 class="mb-4">Order Summary</h4>
+                                <div class="order-items">
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="order-item">
+                                            <div class="item-name">@item.Name x @item.Quantity</div>
+                                            <div class="item-price">₹@(item.Price * item.Quantity)</div>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="order-total">
+                                    <div class="total-item">
+                                        <span>Subtotal</span>
+                                        <span>₹@Model.Sum(i => i.Price * i.Quantity)</span>
+                                    </div>
+                                    <div class="total-item">
+                                        <span>Delivery Fee</span>
+                                        <span>₹50</span>
+                                    </div>
+                                    <div class="total-item">
+                                        <span>Tax (5%)</span>
+                                        <span>₹@(Model.Sum(i => i.Price * i.Quantity) * 0.05m)</span>
+                                    </div>
+                                    <div class="total-item grand-total">
+                                        <span>Total</span>
+                                        <span>₹@(Model.Sum(i => i.Price * i.Quantity) * 1.05m + 50)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkout-buttons mt-4">
+                            <button type="button" class="btn btn-outline-secondary" id="prevBtn" style="display: none;">Previous</button>
+                            <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                            <button type="submit" class="btn btn-success" id="placeOrderBtn" style="display: none;">Place Order</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="order-summary-sidebar">
+                    <h4 class="mb-4">Your Order</h4>
+                    <div class="order-items">
+                        @foreach (var item in Model)
+                        {
+                            <div class="order-item">
+                                <div class="item-image">
+                                    <img src="@item.ImageUrl" alt="@item.Name">
+                                </div>
+                                <div class="item-details">
+                                    <div class="item-name">@item.Name</div>
+                                    <div class="item-quantity">Quantity: @item.Quantity</div>
+                                    <div class="item-price">₹@(item.Price * item.Quantity)</div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="order-total">
+                        <div class="total-item">
+                            <span>Subtotal</span>
+                            <span>₹@Model.Sum(i => i.Price * i.Quantity)</span>
+                        </div>
+                        <div class="total-item">
+                            <span>Delivery Fee</span>
+                            <span>₹50</span>
+                        </div>
+                        <div class="total-item">
+                            <span>Tax (5%)</span>
+                            <span>₹@(Model.Sum(i => i.Price * i.Quantity) * 0.05m)</span>
+                        </div>
+                        <div class="total-item grand-total">
+                            <span>Total</span>
+                            <span>₹@(Model.Sum(i => i.Price * i.Quantity) * 1.05m + 50)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Styles {
+    <style>
+        .checkout-header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 150px 0 100px;
+            margin-top: -20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .checkout-header .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
+        }
+
+        .checkout-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .checkout-header .badge {
+            font-size: 1rem;
+            padding: 0.5rem 1.5rem;
+            background-color: #ff4757 !important;
+            margin-bottom: 1.5rem;
+            transform: translateY(20px);
+            animation: fadeInDown 0.5s ease forwards;
+        }
+
+        .checkout-header h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            transform: translateY(20px);
+            animation: fadeInDown 0.5s ease forwards 0.2s;
+        }
+
+        .checkout-header .lead {
+            font-size: 1.25rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            transform: translateY(20px);
+            animation: fadeInDown 0.5s ease forwards 0.4s;
+        }
+
+        .checkout-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .checkout-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e9ecef;
+            z-index: 1;
+        }
+
+        .step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            background: white;
+            padding: 0 1rem;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e9ecef;
+            color: #6c757d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .step.active .step-number {
+            background: #ff4757;
+            color: white;
+        }
+
+        .step-title {
+            font-size: 0.9rem;
+            color: #6c757d;
+            transition: all 0.3s ease;
+        }
+
+        .step.active .step-title {
+            color: #ff4757;
+            font-weight: 500;
+        }
+
+        .checkout-form-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #ff4757;
+            box-shadow: 0 0 0 0.2rem rgba(255, 71, 87, 0.25);
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-method:hover {
+            border-color: #ff4757;
+        }
+
+        .payment-method input[type="radio"] {
+            margin-right: 1rem;
+        }
+
+        .payment-method label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .payment-method i {
+            font-size: 1.2rem;
+            color: #ff4757;
+        }
+
+        .order-summary-sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .item-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-name {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-quantity {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .item-price {
+            font-weight: 500;
+            color: #ff4757;
+        }
+
+        .order-total {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e9ecef;
+        }
+
+        .total-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: #6c757d;
+        }
+
+        .total-item.grand-total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2d3436;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .checkout-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #ff4757;
+            border-color: #ff4757;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff3040;
+            border-color: #ff3040;
+        }
+
+        .btn-success {
+            background-color: #00b894;
+            border-color: #00b894;
+        }
+
+        .btn-success:hover {
+            background-color: #00a884;
+            border-color: #00a884;
+        }
+
+        /* Responsive adjustments */
+        @@media (max-width: 768px) {
+            .checkout-header {
+                padding: 120px 0 80px;
+            }
+
+            .checkout-header h1 {
+                font-size: 3rem;
+            }
+
+            .checkout-steps {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .checkout-steps::before {
+                display: none;
+            }
+
+            .step {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem;
+                border: 1px solid #e9ecef;
+                border-radius: 8px;
+            }
+
+            .step-number {
+                margin: 0;
+            }
+
+            .order-summary-sidebar {
+                margin-top: 2rem;
+            }
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            let currentStep = 1;
+            const totalSteps = 3;
+
+            function updateStep(step) {
+                $('.step').removeClass('active');
+                $(`.step[data-step="${step}"]`).addClass('active');
+                
+                $('.checkout-step').hide();
+                $(`#step${step}`).show();
+
+                $('#prevBtn').toggle(step > 1);
+                $('#nextBtn').toggle(step < totalSteps);
+                $('#placeOrderBtn').toggle(step === totalSteps);
+            }
+
+            $('#nextBtn').click(function() {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    updateStep(currentStep);
+                }
+            });
+
+            $('#prevBtn').click(function() {
+                if (currentStep > 1) {
+                    currentStep--;
+                    updateStep(currentStep);
+                }
+            });
+
+            $('#checkoutForm').submit(function(e) {
+                e.preventDefault();
+                
+                // Show success message
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Order Placed!',
+                    text: 'Your order has been placed successfully. You will receive a confirmation email shortly.',
+                    confirmButtonColor: '#ff4757'
+                }).then(() => {
+                    window.location.href = '/';
+                });
+            });
+
+            // Initialize form validation
+            const form = document.getElementById('checkoutForm');
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            });
+
+            // Card number formatting
+            $('#cardNumber').on('input', function() {
+                let value = $(this).val().replace(/\D/g, '');
+                value = value.replace(/(\d{4})/g, '$1 ').trim();
+                $(this).val(value);
+            });
+
+            // Expiry date formatting
+            $('#expiry').on('input', function() {
+                let value = $(this).val().replace(/\D/g, '');
+                if (value.length >= 2) {
+                    value = value.slice(0, 2) + '/' + value.slice(2);
+                }
+                $(this).val(value);
+            });
+
+            // CVV formatting
+            $('#cvv').on('input', function() {
+                $(this).val($(this).val().replace(/\D/g, '').slice(0, 3));
+            });
+
+            // Show/hide card details based on payment method
+            $('input[name="payment"]').change(function() {
+                const selectedMethod = $(this).val();
+                $('.card-details').toggle(selectedMethod === 'card');
+            });
+        });
+    </script>
+}

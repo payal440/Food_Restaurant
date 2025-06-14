@@ -1,0 +1,405 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\FoodRestaurant.bundle.scp.css",
+      "PackagePath": "staticwebassets\\FoodRestaurant.bundle.scp.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\banners\\about-banner.jpg",
+      "PackagePath": "staticwebassets\\images\\banners\\about-banner.jpg"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\banners\\cart-banner.jpg",
+      "PackagePath": "staticwebassets\\images\\banners\\cart-banner.jpg"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\banners\\contact-banner.jpg",
+      "PackagePath": "staticwebassets\\images\\banners\\contact-banner.jpg"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\banners\\hero-1.jpg",
+      "PackagePath": "staticwebassets\\images\\banners\\hero-1.jpg"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\banners\\hero-2.jpg",
+      "PackagePath": "staticwebassets\\images\\banners\\hero-2.jpg"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\banners\\hero-bg.jpg'",
+      "PackagePath": "staticwebassets\\images\\banners\\hero-bg.jpg'"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\banners\\menu-banner.jpg",
+      "PackagePath": "staticwebassets\\images\\banners\\menu-banner.jpg"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\categories\\indian.jpg",
+      "PackagePath": "staticwebassets\\images\\categories\\indian.jpg"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\09193608-70ce-4b17-b4c3-f745982475ee_pizaa_image.webp",
+      "PackagePath": "staticwebassets\\images\\dishes\\09193608-70ce-4b17-b4c3-f745982475ee_pizaa_image.webp"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\2db79e26-ffe6-4e34-a2f5-4f9ece210bff_pizaa_image.webp",
+      "PackagePath": "staticwebassets\\images\\dishes\\2db79e26-ffe6-4e34-a2f5-4f9ece210bff_pizaa_image.webp"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\5219218b-3de3-4611-951f-7e0c7f7e5e2d_pizaa_image.webp",
+      "PackagePath": "staticwebassets\\images\\dishes\\5219218b-3de3-4611-951f-7e0c7f7e5e2d_pizaa_image.webp"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\559eea6b-03f7-4cdb-9428-b1ddd9df1104_pizaa_image.webp",
+      "PackagePath": "staticwebassets\\images\\dishes\\559eea6b-03f7-4cdb-9428-b1ddd9df1104_pizaa_image.webp"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\7e7976c1-95b4-407f-a5ef-2597e442c3ef_pizaa_image.webp",
+      "PackagePath": "staticwebassets\\images\\dishes\\7e7976c1-95b4-407f-a5ef-2597e442c3ef_pizaa_image.webp"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\9257d396-c0b3-41b6-9294-2211920caa2a_pizaa_image.webp",
+      "PackagePath": "staticwebassets\\images\\dishes\\9257d396-c0b3-41b6-9294-2211920caa2a_pizaa_image.webp"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\9335c743-08f2-4acb-889e-61e4f321a73e_pizaa_image.webp",
+      "PackagePath": "staticwebassets\\images\\dishes\\9335c743-08f2-4acb-889e-61e4f321a73e_pizaa_image.webp"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\a7fb5306-e255-488e-897c-1e4ad6ab6ef0_pizaa_image.webp",
+      "PackagePath": "staticwebassets\\images\\dishes\\a7fb5306-e255-488e-897c-1e4ad6ab6ef0_pizaa_image.webp"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\be651021-1792-4e96-91ca-a90046885b3a_pizaa_image.webp",
+      "PackagePath": "staticwebassets\\images\\dishes\\be651021-1792-4e96-91ca-a90046885b3a_pizaa_image.webp"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\butter-chicken.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\butter-chicken.jpg"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\c62ecffe-2c27-47dc-b09e-fde380cec3db_pizaa_image.webp",
+      "PackagePath": "staticwebassets\\images\\dishes\\c62ecffe-2c27-47dc-b09e-fde380cec3db_pizaa_image.webp"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\default-dish.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\default-dish.jpg"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\default.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\default.jpg"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\dish1.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\dish1.jpg"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\dish2.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\dish2.jpg"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\e8ce8903-b71d-4f7d-b30b-2567700d8bd2_pizaa_image.webp",
+      "PackagePath": "staticwebassets\\images\\dishes\\e8ce8903-b71d-4f7d-b30b-2567700d8bd2_pizaa_image.webp"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\f71c9114-88c2-47f9-b176-c6b8da68982d_pizaa_image.webp",
+      "PackagePath": "staticwebassets\\images\\dishes\\f71c9114-88c2-47f9-b176-c6b8da68982d_pizaa_image.webp"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\fcb83059-1b90-4c58-82b6-65772ae7c825_pizaa_image.webp",
+      "PackagePath": "staticwebassets\\images\\dishes\\fcb83059-1b90-4c58-82b6-65772ae7c825_pizaa_image.webp"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\fish-curry.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\fish-curry.jpg"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\dishes\\kadai-paneer.jpg",
+      "PackagePath": "staticwebassets\\images\\dishes\\kadai-paneer.jpg"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\empty-cart.svg",
+      "PackagePath": "staticwebassets\\images\\empty-cart.svg"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\food-images\\3aeae574-58c9-4623-8fd2-b478f874202a_pizaa_image.webp",
+      "PackagePath": "staticwebassets\\images\\food-images\\3aeae574-58c9-4623-8fd2-b478f874202a_pizaa_image.webp"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\food-images\\image copy 2.png",
+      "PackagePath": "staticwebassets\\images\\food-images\\image copy 2.png"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\food-images\\image copy 3.png",
+      "PackagePath": "staticwebassets\\images\\food-images\\image copy 3.png"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\food-images\\image copy.png",
+      "PackagePath": "staticwebassets\\images\\food-images\\image copy.png"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\food-images\\image.png",
+      "PackagePath": "staticwebassets\\images\\food-images\\image.png"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\images\\logo\\spice-haven-logo.png",
+      "PackagePath": "staticwebassets\\images\\logo\\spice-haven-logo.png"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "E:\\MCA SECOND SEM\\asp\\FOOD_RESTAUARENT _FINALLY\\FOOD_RESTAUARENT (2)\\FOOD_RESTAUARENT\\FoodRestaurant\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.FoodRestaurant.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.FoodRestaurant.props",
+      "PackagePath": "build\\FoodRestaurant.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.FoodRestaurant.props",
+      "PackagePath": "buildMultiTargeting\\FoodRestaurant.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.FoodRestaurant.props",
+      "PackagePath": "buildTransitive\\FoodRestaurant.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
